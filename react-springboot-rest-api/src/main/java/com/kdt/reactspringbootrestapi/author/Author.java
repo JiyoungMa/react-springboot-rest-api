@@ -20,4 +20,20 @@ public class Author {
     public Author(UUID authorId, String name) {
         this(authorId, name, LocalDateTime.now(), LocalDateTime.now());
     }
+
+    public UUID getAuthorId() {
+        return authorId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 }

@@ -29,4 +29,36 @@ public class Order {
     public Order(UUID orderId, Email email, String address, String postcode, List<OrderBook> orderBooks, OrderStatus orderStatus) {
         this(orderId,email,address,postcode,orderBooks,orderStatus, LocalDateTime.now(), LocalDateTime.now());
     }
+
+    public UUID getOrderId() {
+        return orderId;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public List<OrderBook> getOrderBooks() {
+        return orderBooks;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 }

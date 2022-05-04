@@ -24,4 +24,28 @@ public class Book {
     public Book(UUID bookId, String title, Genre genre, long price) {
         this(bookId,title,genre,price, LocalDateTime.now(), LocalDateTime.now());
     }
+
+    public UUID getBookId() {
+        return bookId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public long getPrice() {
+        return price;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
 }
