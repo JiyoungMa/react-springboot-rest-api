@@ -1,1 +1,8 @@
-
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/dev_firstproject
+    username: devcourse
+    password: 1234!
+  sql:
+    init:
+      mode: always

@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/dev_firstproject_test
+    username: devcourseTester
+    password: tester!
+  sql:
+    init:
+      mode: always

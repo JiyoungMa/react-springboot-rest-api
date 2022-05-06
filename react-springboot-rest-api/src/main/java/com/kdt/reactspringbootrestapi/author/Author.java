@@ -6,13 +6,13 @@ import java.util.UUID;
 
 public class Author {
     private final UUID authorId;
-    private String name;
+    private String authorName;
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Author(UUID authorId, String name, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Author(UUID authorId, String authorName, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.authorId = authorId;
-        this.name = name;
+        this.authorName = authorName;
         this.createdAt = createdAt.truncatedTo(ChronoUnit.MILLIS);
         this.updatedAt = updatedAt.truncatedTo(ChronoUnit.MILLIS);
     }
@@ -25,8 +25,8 @@ public class Author {
         return authorId;
     }
 
-    public String getName() {
-        return name;
+    public String getAuthorName() {
+        return authorName;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -35,5 +35,13 @@ public class Author {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

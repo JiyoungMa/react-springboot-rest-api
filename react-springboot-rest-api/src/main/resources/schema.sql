@@ -1,10 +1,13 @@
+drop database dev_firstproject_test;
+create database dev_firstproject_test;
+use dev_firstproject_test;
+
 CREATE TABLE authors(
                         author_id BINARY(16) PRIMARY KEY,
-                        name VARCHAR(50) NOT NULL,
+                        author_name VARCHAR(50) NOT NULL,
                         created_at datetime(6) NOT NULL,
                         updated_at datetime(6) DEFAULT NULL
 );
-
 
 CREATE TABLE books(
                       book_id BINARY(16) PRIMARY KEY,
@@ -36,5 +39,5 @@ CREATE TABLE order_books
     price       bigint          NOT NULL,
     quantity    int             NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders (order_id) ON DELETE CASCADE,
-    FOREIGN KEY (book_id) REFERENCES books (book_id)
+    FOREIGN KEY (book_id) REFERENCES books (book_id) ON DELETE CASCADE
 );
