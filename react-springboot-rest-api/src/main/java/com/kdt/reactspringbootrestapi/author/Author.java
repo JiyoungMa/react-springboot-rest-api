@@ -17,6 +17,10 @@ public class Author {
         this.updatedAt = updatedAt.truncatedTo(ChronoUnit.MILLIS);
     }
 
+    public Author(UUID authorId, String name, LocalDateTime updatedAt) {
+        this(authorId, name, updatedAt, updatedAt);
+    }
+
     public Author(UUID authorId, String name) {
         this(authorId, name, LocalDateTime.now(), LocalDateTime.now());
     }
