@@ -20,5 +20,5 @@ public interface AuthorRepository {
 
     void deleteAll();
 
-    boolean deleteAuthor(Author author);
+    boolean deleteAuthor(UUID authorId);
 }

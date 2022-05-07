@@ -109,7 +109,7 @@ class AuthorJdbcRepositoryTest {
     void deleteAuthor() {
         var findResult = authorRepository.findAll();
 
-        var deleteResult = authorRepository.deleteAuthor(author);
+        var deleteResult = authorRepository.deleteAuthor(author.getAuthorId());
         findResult.remove(findResult.stream().filter(a -> a.getAuthorId().equals(author.getAuthorId())).collect(Collectors.toList()).get(0));
         var deletedFindResult = authorRepository.findAll();
 
