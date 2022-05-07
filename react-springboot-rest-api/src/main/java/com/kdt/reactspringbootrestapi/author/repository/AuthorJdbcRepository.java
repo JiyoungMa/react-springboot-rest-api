@@ -66,9 +66,9 @@ public class AuthorJdbcRepository implements AuthorRepository {
     }
 
     @Override
-    public boolean deleteAuthor(Author author) {
+    public boolean deleteAuthor(UUID authorId) {
         var deleteResult = jdbcTemplate.update("delete from authors where author_id = UNHEX(REPLACE( :author_id, '-', ''))",
-                Collections.singletonMap("author_id", author.getAuthorId().toString().getBytes()));
+                Collections.singletonMap("author_id", authorId.toString().getBytes()));
 
         if (deleteResult != 1)
             return false;
