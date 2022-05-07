@@ -10,7 +10,7 @@ public class Order {
     private Email email;
     private String address;
     private String postcode;
-    private final List<OrderBook> orderBooks;
+    private List<OrderBook> orderBooks;
     private OrderStatus orderStatus;
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -60,5 +60,29 @@ public class Order {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setOrderBooks(List<OrderBook> orderBooks) {
+        this.orderBooks = orderBooks;
     }
 }
