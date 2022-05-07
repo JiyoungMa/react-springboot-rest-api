@@ -1,6 +1,8 @@
-package com.kdt.reactspringbootrestapi.book;
+package com.kdt.reactspringbootrestapi.book.repository;
 
 import com.kdt.reactspringbootrestapi.JdbcUtils;
+import com.kdt.reactspringbootrestapi.book.Book;
+import com.kdt.reactspringbootrestapi.book.Genre;
 import com.kdt.reactspringbootrestapi.exception.JdbcFailException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
@@ -40,7 +42,7 @@ public class BookJdbcRepository implements BookRepository {
                 "UPDATE books SET title = :title, author_id = UNHEX(REPLACE( :author_id, '-', '')), genre = :genre, price = :price, updated_at = :updated_at where book_id = UNHEX(REPLACE( :book_id, '-', ''))",
                 toParamMap(book));
         if (updateResult != 1)
-            throw new JdbcFailException("Author의 Update가 실패했습니다.");
+            throw new JdbcFailException("Book의 Update가 실패했습니다.");
 
         return book;
     }

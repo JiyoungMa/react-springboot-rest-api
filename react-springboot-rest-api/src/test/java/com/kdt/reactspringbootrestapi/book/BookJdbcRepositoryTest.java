@@ -2,6 +2,7 @@ package com.kdt.reactspringbootrestapi.book;
 
 import com.kdt.reactspringbootrestapi.author.Author;
 import com.kdt.reactspringbootrestapi.author.repository.AuthorRepository;
+import com.kdt.reactspringbootrestapi.book.repository.BookRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

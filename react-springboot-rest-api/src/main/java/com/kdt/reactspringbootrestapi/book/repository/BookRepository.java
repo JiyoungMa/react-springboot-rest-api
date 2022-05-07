@@ -1,4 +1,7 @@
-package com.kdt.reactspringbootrestapi.book;
+package com.kdt.reactspringbootrestapi.book.repository;
+
+import com.kdt.reactspringbootrestapi.book.Book;
+import com.kdt.reactspringbootrestapi.book.Genre;
 
 import java.util.List;
 import java.util.Optional;
