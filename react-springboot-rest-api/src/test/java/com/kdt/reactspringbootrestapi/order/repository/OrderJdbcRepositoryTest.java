@@ -61,10 +61,12 @@ class OrderJdbcRepositoryTest {
     void findAll() {
         List<Order> orderList = new ArrayList<>();
         orderList.add(order);
-
-        for (int i=0; i<10; i++){
-            Order newOrder = new Order(UUID.randomUUID(), new Email(MessageFormat.format("tester{0}@gmail.com", i)), MessageFormat.format("Address {0}", i), MessageFormat.format("Postcode {0}", i), new ArrayList<>(), OrderStatus.ACCEPTED);
-            newOrder.getOrderBooks().add(new OrderBook(newOrder.getOrderId(), book.getBookId(), i, book.getPrice()*i));
+        for (int i = 0; i<9; i++){
+            List<OrderBook> newOrderBookList = new ArrayList<>();
+            Order newOrder = new Order(UUID.randomUUID(), new Email(MessageFormat.format("tester{0}@gmail.com", i)), MessageFormat.format("Address Example {0}", i), MessageFormat.format("Postcode Example {0}", i), newOrderBookList, OrderStatus.ACCEPTED);
+            for (int j = 0; j<3; j++){
+                newOrderBookList.add(new OrderBook(newOrder.getOrderId(), book.getBookId(), i*10 + j, book.getPrice() * (i*10 + j)));
+            }
             orderList.add(newOrder);
             orderRepository.insert(newOrder);
         }
@@ -135,7 +137,7 @@ class OrderJdbcRepositoryTest {
     void deleteOrder() {
         var findResult = orderRepository.findAll();
 
-        var deleteResult = orderRepository.deleteOrder(order);
+        var deleteResult = orderRepository.deleteOrder(order.getOrderId());
         findResult.remove(findResult.stream().filter(a -> a.getOrderId().equals(order.getOrderId())).collect(Collectors.toList()).get(0));
         var deletedFindResult = orderRepository.findAll();
 

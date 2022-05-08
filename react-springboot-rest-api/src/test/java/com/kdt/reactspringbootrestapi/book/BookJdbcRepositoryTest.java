@@ -132,7 +132,7 @@ class BookJdbcRepositoryTest {
     void deleteBook() {
         var findResult = bookRepository.findAll();
 
-        var deleteResult = bookRepository.deleteBook(book);
+        var deleteResult = bookRepository.deleteBook(book.getBookId());
         findResult.remove(findResult.stream().filter(a -> a.getBookId().equals(book.getBookId())).collect(Collectors.toList()).get(0));
         var deletedFindResult = bookRepository.findAll();
 

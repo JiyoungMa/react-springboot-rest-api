@@ -2,6 +2,7 @@ package com.kdt.reactspringbootrestapi.book.repository;
 
 import com.kdt.reactspringbootrestapi.book.Book;
 import com.kdt.reactspringbootrestapi.book.Genre;
+import com.kdt.reactspringbootrestapi.order.OrderBook;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,5 +24,5 @@ public interface BookRepository {
 
     void deleteAll();
 
-    boolean deleteBook(Book book);
+    boolean deleteBook(UUID bookId);
 }

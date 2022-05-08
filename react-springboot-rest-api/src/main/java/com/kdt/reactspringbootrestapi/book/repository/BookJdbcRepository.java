@@ -75,9 +75,9 @@ public class BookJdbcRepository implements BookRepository {
     }
 
     @Override
-    public boolean deleteBook(Book book) {
+    public boolean deleteBook(UUID bookId) {
         var deleteResult = jdbcTemplate.update("delete from books where book_id = UNHEX(REPLACE( :book_id, '-', ''))",
-                Collections.singletonMap("book_id", book.getBookId().toString().getBytes()));
+                Collections.singletonMap("book_id", bookId.toString().getBytes()));
 
         if (deleteResult != 1)
             return false;

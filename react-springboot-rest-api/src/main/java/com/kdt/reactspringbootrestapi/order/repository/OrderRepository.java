@@ -2,6 +2,7 @@ package com.kdt.reactspringbootrestapi.order.repository;
 
 import com.kdt.reactspringbootrestapi.order.Email;
 import com.kdt.reactspringbootrestapi.order.Order;
+import com.kdt.reactspringbootrestapi.order.OrderBook;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,5 +22,5 @@ public interface OrderRepository {
 
     void deleteAll();
 
-    boolean deleteOrder(Order order);
+    boolean deleteOrder(UUID orderId);
 }

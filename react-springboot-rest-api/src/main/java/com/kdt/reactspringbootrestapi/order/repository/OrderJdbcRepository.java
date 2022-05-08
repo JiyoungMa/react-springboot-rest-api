@@ -118,9 +118,9 @@ public class OrderJdbcRepository implements OrderRepository {
     }
 
     @Override
-    public boolean deleteOrder(Order order) {
+    public boolean deleteOrder(UUID orderId) {
         var deleteResult = jdbcTemplate.update("delete from orders where order_id = UNHEX(REPLACE( :order_id, '-', ''))",
-                Collections.singletonMap("order_id", order.getOrderId().toString().getBytes()));
+                Collections.singletonMap("order_id", orderId.toString().getBytes()));
 
         if (deleteResult != 1)
             return false;
