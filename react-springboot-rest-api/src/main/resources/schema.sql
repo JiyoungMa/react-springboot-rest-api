@@ -1,6 +1,6 @@
-drop database dev_firstproject_test;
-create database dev_firstproject_test;
-use dev_firstproject_test;
+drop database dev_firstproject;
+create database dev_firstproject;
+use dev_firstproject;
 
 CREATE TABLE authors(
                         author_id BINARY(16) PRIMARY KEY,

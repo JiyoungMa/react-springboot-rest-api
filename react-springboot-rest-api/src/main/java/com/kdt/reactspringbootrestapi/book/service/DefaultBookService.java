@@ -53,7 +53,7 @@ public class DefaultBookService implements BookService {
     public Book getBookById(UUID bookId) {
         var foundResult = bookRepository.findById(bookId);
         if (foundResult.isEmpty())
-            throw new NoSuchResource("일치하는 Author이 없습니다.");
+            throw new NoSuchResource("일치하는 Book 없습니다.");
 
         return foundResult.get();
     }

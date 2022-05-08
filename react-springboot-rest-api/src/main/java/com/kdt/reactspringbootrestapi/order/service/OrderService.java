@@ -5,6 +5,7 @@ import com.kdt.reactspringbootrestapi.order.Email;
 import com.kdt.reactspringbootrestapi.order.Order;
 import com.kdt.reactspringbootrestapi.order.OrderBook;
 import com.kdt.reactspringbootrestapi.order.OrderStatus;
+import com.kdt.reactspringbootrestapi.order.dto.request.OrderBookDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,7 +18,7 @@ public interface OrderService {
 
     boolean checkDuplication(Order order);
 
-    Order createOrder(UUID orderId, Email email, String address, String postcode, List<OrderBook> orderBooks, OrderStatus orderStatus, LocalDateTime createdAt);
+    Order createOrder(UUID orderId, Email email, String address, String postcode, List<OrderBookDto> orderBookDto, OrderStatus orderStatus, LocalDateTime createdAt);
 
     Order updateOrder(UUID orderId, Email email, String address, String postcode, OrderStatus orderStatus, LocalDateTime updatedAt);
 

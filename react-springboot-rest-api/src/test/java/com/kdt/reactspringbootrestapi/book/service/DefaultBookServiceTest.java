@@ -42,7 +42,7 @@ class DefaultBookServiceTest {
         when(bookRepository.findAll()).thenReturn(bookList);
 
         //When
-        var resultAllBooks = bookRepository.findAll();
+        var resultAllBooks = bookService.getAllBooks();
 
         //Then
         assertThat(resultAllBooks)

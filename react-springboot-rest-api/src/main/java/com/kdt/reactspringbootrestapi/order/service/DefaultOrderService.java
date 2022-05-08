@@ -6,6 +6,7 @@ import com.kdt.reactspringbootrestapi.order.Email;
 import com.kdt.reactspringbootrestapi.order.Order;
 import com.kdt.reactspringbootrestapi.order.OrderBook;
 import com.kdt.reactspringbootrestapi.order.OrderStatus;
+import com.kdt.reactspringbootrestapi.order.dto.request.OrderBookDto;
 import com.kdt.reactspringbootrestapi.order.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +36,9 @@ public class DefaultOrderService implements OrderService {
     }
 
     @Override
-    public Order createOrder(UUID orderId, Email email, String address, String postcode, List<OrderBook> orderBooks, OrderStatus orderStatus, LocalDateTime createdAt) {
-        Order order = new Order(orderId, email, address,postcode,orderBooks,orderStatus, createdAt,createdAt);
+    public Order createOrder(UUID orderId, Email email, String address, String postcode, List<OrderBookDto> orderBooks, OrderStatus orderStatus, LocalDateTime createdAt) {
+        Order order = new Order(orderId, email, address,postcode,new ArrayList<>(),orderStatus, createdAt,createdAt);
+        orderBooks.forEach(orderBookDto -> order.getOrderBooks().add(new OrderBook(order.getOrderId(), orderBookDto.bookId(), orderBookDto.quantity(), orderBookDto.price())));
         if (checkDuplication(order))
             throw new ResourceDuplication("동일한 Order이 이미 존재합니다.");
         return orderRepository.insert(order);
@@ -49,6 +51,8 @@ public class DefaultOrderService implements OrderService {
         var foundResult = orderRepository.findById(orderId);
         if (foundResult.isEmpty())
             throw new NoSuchResource("일치하는 Order 없습니다.");
+
+        order.setOrderBooks(foundResult.get().getOrderBooks());
 
         return orderRepository.update(order);
     }
